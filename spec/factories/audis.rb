@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :audi do
-    movie_hall nil
-    audi_no 1
+    movie_hall { MovieHall.first || association(:movie_hall) }
+    audi_no Faker::Number.between(1, 4)
   end
 end

@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :show_time do
-    movie nil
-    audi ""
-    start_time "2018-01-18 10:31:26"
-    run_time "2018-01-18 10:31:26"
+    movie { Movie.first || association(:movie) }
+    audi { Audi.first || association(:audi) }
+    start_time Faker::Time.between(2.days.ago, Date.today, :all)
+    run_time Faker::Time.between(2.days.ago, Date.today, :all)
   end
 end

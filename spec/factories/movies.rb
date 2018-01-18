@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :movie do
-    name "MyString"
-    release_date "2018-01-18"
-    cast "MyString"
+    name Faker::Movie.quote
+    release_date Faker::Date.between(2.days.ago, Date.today)
+    cast Faker::Name.name
   end
 end

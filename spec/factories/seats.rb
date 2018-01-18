@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :seat do
-    audi nil
-    row_number "MyString"
-    seat_number 1
+    audi { Audi.first || association(:audi) }
+    row_number Faker::Number.between(65, 90).chr
+    seat_number Faker::Number.between(1, 14)
   end
 end

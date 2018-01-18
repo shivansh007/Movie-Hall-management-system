@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :booking do
-    movie nil
-    user nil
-    booking_time "2018-01-18 10:29:09"
+    movie { Movie.first || association(:movie) }
+    user { User.first || association(:user) }
+    booking_time Faker::Time.between(2.days.ago, Date.today, :all)
   end
 end

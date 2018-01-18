@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :ticket do
-    booking nil
-    show_time nil
-    seat nil
+    booking { Booking.first || association(:booking) }
+    seat { Seat.first || association(:seat) }
+    show_time { ShowTime.first || association(:show_time) }
   end
 end
